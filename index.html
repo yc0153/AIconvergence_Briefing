@@ -227,42 +227,6 @@ thead th{background:var(--soft)}
 .notice{margin:4px 0 16px}
 .notice ul{margin:6px 0 0;padding-left:18px;font-size:14.5px}
 .notice li{margin-bottom:4px}
-.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media (max-width:620px){.row3{grid-template-columns:1fr}}
-label .lock,label .pub{display:inline-block;font-size:11px;font-weight:700;padding:0 7px;border-radius:999px;margin-left:4px;vertical-align:1px}
-label .lock{background:#F1F3F7;color:var(--muted-light)}
-label .pub{background:var(--blue-soft);color:var(--blue)}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.agree{display:flex;gap:8px;align-items:flex-start;font-weight:500;color:var(--ink);font-size:14px}
-.agree input{width:auto;margin-top:4px;flex:none}
-.toast.err{color:var(--red)}
-.btn[disabled]{opacity:.6;cursor:default}
-.board{margin-top:28px;padding-top:18px;border-top:2px solid var(--line)}
-.bhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
-.bhead h3{margin:0}
-.bhead .cnt{font-size:14px;color:var(--muted-light);font-weight:700}
-.bctl{display:flex;gap:8px;flex-wrap:wrap}
-.bctl select{width:auto;padding:7px 10px;font-size:14px}
-.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
-.seg button{appearance:none;border:0;background:transparent;font:inherit;font-size:14px;font-weight:700;color:var(--muted-light);padding:7px 12px;cursor:pointer}
-.seg button.on{background:var(--navy);color:#fff}
-.blist{display:grid;gap:10px}
-.post{background:#fff;border:1px solid rgba(220,227,238,.9);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(5,15,40,.06),0 8px 20px rgba(5,15,40,.08);display:grid;grid-template-columns:1fr auto;gap:6px 14px}
-.post .ph{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted-light)}
-.post .ph .who{font-weight:700;color:var(--navy)}
-.post .tx{white-space:pre-wrap;word-break:break-word;font-size:15px;min-width:0}
-.post .rp{grid-column:1/-1;background:var(--blue-soft);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:8px 12px;font-size:14px;white-space:pre-wrap}
-.post .rp b{display:block;font-size:12.5px;color:var(--blue)}
-.like{appearance:none;align-self:start;display:inline-flex;flex-direction:column;align-items:center;gap:0;min-width:52px;padding:6px 8px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--muted-light);font:inherit;font-weight:700;cursor:pointer;line-height:1.2}
-.like .h{font-size:18px}
-.like .n{font-size:13px;font-variant-numeric:tabular-nums}
-.like.on{border-color:#F3B4B4;background:#FFF1F1;color:var(--red)}
-.like:focus-visible,.seg button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
-.chip.t-질문{background:var(--blue-soft);color:var(--blue)}
-.chip.t-의견{background:var(--green-soft);color:var(--green)}
-.chip.t-정정{background:var(--orange-soft);color:var(--orange)}
-.chip.tp{background:#F1F3F7;color:var(--muted)}
-.bmore{justify-self:center}
 </style>
 
 <div class="app">
@@ -320,7 +284,7 @@ label .pub{background:var(--blue-soft);color:var(--blue)}
       </button>
       <button class="tile" type="button" data-open="ask" id="tile-ask">
         <span class="th"><span class="tn">7</span><span class="tt">질문 · 의견 남기기</span></span>
-        <span class="td">질문·의견을 남기고, 다른 학생의 글에 공감을 누를 수 있습니다. 페이지에는 학번·전공·학기수만 표시</span>
+        <span class="td">간담회에서 다룰 질문과 페이지 수정 의견을 패들렛으로 받습니다</span>
         <span class="tm">자세히 보기 →</span>
       </button>
       </div>
@@ -471,55 +435,19 @@ label .pub{background:var(--blue-soft);color:var(--blue)}
     <article class="detail" id="ask" data-n="7" data-title="질문 · 의견 남기기" hidden>
       <h2><span class="n">7</span>질문 · 의견 남기기</h2>
       <div class="callout official"><b>이 칸은 공식 의견수렴 창구가 아닙니다.</b> 여기서는 <b>현장 간담회에서 논의할 사항</b>과 <b>이 페이지에서 고쳐야 할 내용</b>을 받습니다. 학부 통합에 대한 <b>공식 의견수렴 창구는 곧 따로 열릴 예정</b>이며, 열리면 이 페이지와 학부 공지로 안내하겠습니다.</div>
-      <p>남긴 질문·의견은 아래 게시판에 바로 올라가고, 다른 학생들도 읽고 <b>공감(♥)</b>을 누를 수 있습니다. 공감이 많은 질문은 현장 간담회에서 우선 다룹니다.</p>
+      <p>질문과 의견은 <b>패들렛</b>에 남겨 주세요. 다른 학생이 남긴 글도 함께 볼 수 있고, 공감하는 글에는 반응(❤️·👍)을 누를 수 있습니다. 반응이 많은 질문은 현장 간담회에서 우선 다룹니다.</p>
       <div class="callout warn notice">
         <b>남기기 전에 꼭 읽어 주세요</b>
         <ul>
-          <li><b>이름·학번·전공·학기수는 모두 필수</b>입니다. 같은 사람이 반복해서 올리는 글을 구분하고, 학년별 의견을 정리하기 위해 받습니다.</li>
-          <li><b>페이지에는 "23학번 · AI융합 · 5학기"처럼 입학 학번·전공·학기수만 보입니다.</b> 이름과 학번 전체는 공개되지 않고 <b>AI융합학부 대표만 확인</b>합니다.</li>
-          <li>받은 개인정보는 간담회 준비와 이 페이지 수정에만 쓰고, 다른 곳에 전달하지 않습니다.</li>
-          <li>내용 안에 본인이나 다른 사람의 이름·연락처를 쓰지 말아 주세요. 내용은 그대로 공개됩니다.</li>
-          <li>특정인을 비방하거나 사실과 다른 내용, 같은 글의 반복 게시는 대표가 숨길 수 있습니다. 올린 글을 지우고 싶으면 대표에게 알려 주세요.</li>
+          <li>글 <b>첫 줄에 "23학번 · AI융합 · 5학기"처럼 입학 학번·전공·학기수</b>를 적어 주세요. 학년·전공별 의견을 정리하는 데 씁니다.</li>
+          <li><b>이름과 학번 전체는 쓰지 마세요.</b> 패들렛에 쓴 글은 링크를 가진 누구에게나 그대로 공개됩니다.</li>
+          <li>내용 안에 다른 사람의 이름·연락처를 쓰지 말아 주세요.</li>
+          <li>특정인을 비방하거나 사실과 다른 내용, 같은 글의 반복 게시는 대표가 지울 수 있습니다.</li>
         </ul>
       </div>
-    <form class="form" id="qForm" novalidate>
-      <div class="row">
-        <div><label for="qType">종류</label>
-          <select id="qType"><option value="질문">질문 (간담회에서 답을 듣고 싶은 것)</option><option value="의견">의견 (대표단 요구에 더하거나 빼야 할 것)</option><option value="정정">정정 (이 페이지의 사실과 다른 부분)</option></select></div>
-        <div><label for="qTopic">관련 주제</label>
-          <select id="qTopic"><option>전공 존속·교육과정</option><option>캡스톤·졸업요건</option><option>시행 시기·선적용</option><option>학부명·영문명</option><option>경과조치·학부명 선택</option><option>대표단·예산·공간 승계</option><option>창업 교육·동문</option><option>GE 관련</option><option>기타</option></select></div>
+      <div class="btns" style="margin-top:6px">
+        <a class="btn yellow" href="https://padlet.com/22000415_2/ai-s024vxda5iu7w9pdhfvr" target="_blank" rel="noopener">패들렛에서 질문 · 의견 남기기 →</a>
       </div>
-      <div><label for="qText">내용</label><textarea id="qText" maxlength="2000" placeholder="예: 통합 후 AI융합전공과 인공지능전공의 필수과목이 어떻게 다른지 전공선택 전에 알고 싶습니다."></textarea></div>
-      <div class="row">
-        <div><label for="qName">이름 <span class="lock">비공개</span></label><input id="qName" type="text" autocomplete="name" maxlength="40"></div>
-        <div><label for="qSid">학번 <span class="lock">비공개</span></label><input id="qSid" type="text" inputmode="numeric" autocomplete="off" maxlength="20" placeholder="예: 22300123"></div>
-      </div>
-      <div class="row3">
-        <div><label for="qYear">입학 학번 <span class="pub">공개</span></label>
-          <select id="qYear"><option value="">선택</option></select></div>
-        <div><label for="qMajor">전공 <span class="pub">공개</span></label>
-          <select id="qMajor"><option value="">선택</option><option>AI융합</option><option>데이터사이언스</option><option>GE</option><option>ICT융합</option><option>ACE</option><option>전공 미선택</option><option>기타</option></select></div>
-        <div><label for="qSem">학기수 <span class="pub">공개</span></label>
-          <select id="qSem"><option value="">선택</option><option value="1">1학기</option><option value="2">2학기</option><option value="3">3학기</option><option value="4">4학기</option><option value="5">5학기</option><option value="6">6학기</option><option value="7">7학기</option><option value="8">8학기</option><option value="9+">9학기 이상</option><option value="졸업">졸업(동문)</option></select></div>
-      </div>
-      <input type="text" id="qHp" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
-      <label class="agree"><input type="checkbox" id="qAgree"> 위 안내를 읽었고, 이름·학번을 대표가 확인하는 데 동의합니다.</label>
-      <div class="btns">
-        <button type="submit" class="btn primary" id="sendBtn">남기기</button>
-        <span class="toast" id="toast" role="status" hidden></span>
-      </div>
-    </form>
-
-    <div class="board">
-      <div class="bhead">
-        <h3>올라온 질문·의견 <span class="cnt" id="bCount"></span></h3>
-        <div class="bctl">
-          <select id="bTopic" aria-label="주제로 거르기"><option value="">전체 주제</option></select>
-          <div class="seg" role="group" aria-label="정렬"><button type="button" data-sort="new" class="on">최신순</button><button type="button" data-sort="like">공감순</button></div>
-        </div>
-      </div>
-      <div id="bList" class="blist"><p class="note">불러오는 중…</p></div>
-    </div>
     </article>
     <article class="detail sub" id="m-0914" data-parent="meetings" data-n="3" data-title="9/14 교무팀 면담" hidden>
       <h2><span class="n">3</span>9/14 교무팀 면담 — 총학생회장 · 양 학부 대표</h2>
@@ -976,72 +904,6 @@ label .pub{background:var(--blue-soft);color:var(--blue)}
   if(FORM_URL){f.href=FORM_URL;f.target="_blank";f.rel="noopener";f.hidden=false;}
   if(SURVEY_URL||FORM_URL){n.hidden=true;}
 
-  /* ===== 질문·의견 게시판 =====
-     Apps Script 웹 앱 주소를 아래에 넣으면 게시판이 작동합니다. */
-  var BOARD_URL = "https://script.google.com/macros/s/AKfycbwBM1KE8w6x8U2ATm-j0PoDJHkTV0Md9ss3iWAyJfGaSCHZpkyCyrbMUm8cWo9Jicbb/exec";
-  (function(){
-    var form=document.getElementById('qForm'), toast=document.getElementById('toast'), sendBtn=document.getElementById('sendBtn');
-    var list=document.getElementById('bList'), count=document.getElementById('bCount'), fTopic=document.getElementById('bTopic');
-    var ySel=document.getElementById('qYear');
-    var now=new Date().getFullYear()%100;
-    for(var y=now;y>=now-12;y--){var o=document.createElement('option');o.value=String(y).padStart(2,'0');o.textContent=String(y).padStart(2,'0')+'학번';ySel.appendChild(o);}
-    Array.prototype.forEach.call(document.getElementById('qTopic').options,function(op){var o=document.createElement('option');o.textContent=op.textContent;fTopic.appendChild(o);});
-    var items=[], sort='new', shown=20;
-    var liked={}; try{liked=JSON.parse(localStorage.getItem('aib-liked')||'{}')||{};}catch(e){}
-    function saveLiked(){try{localStorage.setItem('aib-liked',JSON.stringify(liked));}catch(e){}}
-    function say(msg,err){toast.textContent=msg;toast.className='toast'+(err?' err':'');toast.hidden=false;}
-    function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-    function ago(iso){var d=new Date(iso); if(isNaN(d)) return ''; var s=(Date.now()-d)/1000;
-      if(s<60) return '방금'; if(s<3600) return Math.floor(s/60)+'분 전'; if(s<86400) return Math.floor(s/3600)+'시간 전';
-      return (d.getMonth()+1)+'/'+d.getDate();}
-    function render(){
-      var arr=items.filter(function(it){return !fTopic.value||it.topic===fTopic.value;});
-      if(sort==='like') arr=arr.slice().sort(function(a,b){return (b.likes-a.likes)||(new Date(b.t)-new Date(a.t));});
-      count.textContent=items.length?'· '+items.length+'건':'';
-      if(!arr.length){list.innerHTML='<p class="note">'+(items.length?'이 주제로 올라온 글이 아직 없습니다.':'아직 올라온 글이 없습니다. 첫 질문을 남겨 주세요.')+'</p>';return;}
-      list.innerHTML=arr.slice(0,shown).map(function(it){
-        var on=!!liked[it.id];
-        return '<div class="post"><div class="ph"><span class="chip t-'+esc(it.type)+'">'+esc(it.type)+'</span><span class="chip tp">'+esc(it.topic)+'</span>'+
-          '<span class="who">'+esc([it.year,it.major,it.sem].filter(Boolean).join(' · '))+'</span><span>'+esc(ago(it.t))+'</span></div>'+
-          '<div class="tx">'+esc(it.text)+'</div>'+
-          '<button type="button" class="like'+(on?' on':'')+'" data-id="'+esc(it.id)+'" aria-pressed="'+on+'" aria-label="공감 '+it.likes+'개"><span class="h">'+(on?'♥':'♡')+'</span><span class="n">'+it.likes+'</span></button>'+
-          (it.reply?'<div class="rp"><b>대표 답변</b>'+esc(it.reply)+'</div>':'')+'</div>';
-      }).join('')+(arr.length>shown?'<button type="button" class="btn ghost bmore" id="bMore">더 보기 ('+(arr.length-shown)+')</button>':'');
-    }
-    function load(){
-      if(!BOARD_URL){list.innerHTML='<p class="note">게시판을 준비하고 있습니다. 곧 열립니다.</p>';sendBtn.disabled=true;return;}
-      fetch(BOARD_URL+'?t='+Date.now()).then(function(r){return r.json();}).then(function(d){items=(d&&d.items)||[];render();})
-        .catch(function(){list.innerHTML='<p class="note">게시판을 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>';});
-    }
-    function post(body){return fetch(BOARD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)}).then(function(r){return r.json();});}
-    form.addEventListener('submit',function(e){
-      e.preventDefault(); if(!BOARD_URL) return;
-      var g=function(id){return document.getElementById(id);};
-      var need=[['qText','내용'],['qName','이름'],['qSid','학번'],['qYear','입학 학번'],['qMajor','전공'],['qSem','학기수']];
-      for(var i=0;i<need.length;i++){var el=g(need[i][0]); if(!el.value.trim()){el.focus(); say(need[i][1]+'을(를) 입력해 주세요.',true); return;}}
-      if(!g('qAgree').checked){g('qAgree').focus(); say('안내에 동의해야 남길 수 있습니다.',true); return;}
-      sendBtn.disabled=true; say('올리는 중…');
-      post({type:g('qType').value,topic:g('qTopic').value,text:g('qText').value,name:g('qName').value,sid:g('qSid').value,year:g('qYear').value,major:g('qMajor').value,sem:g('qSem').value,hp:g('qHp').value})
-        .then(function(d){
-          if(!d||!d.ok){throw new Error(d&&d.error||'');}
-          g('qText').value=''; say('올라갔습니다. 아래 게시판에서 확인할 수 있습니다.'); sort='new'; setSort(); load();
-        }).catch(function(err){say('올리지 못했습니다. '+(err.message||'잠시 뒤 다시 시도해 주세요.'),true);})
-        .then(function(){sendBtn.disabled=false;});
-    });
-    list.addEventListener('click',function(e){
-      if(e.target.closest('#bMore')){shown+=20;render();return;}
-      var b=e.target.closest('.like'); if(!b||b.disabled) return;
-      var id=b.dataset.id, it=items.filter(function(x){return x.id===id;})[0]; if(!it) return;
-      var undo=!!liked[id]; b.disabled=true;
-      if(undo){delete liked[id];it.likes=Math.max(0,it.likes-1);}else{liked[id]=1;it.likes++;}
-      saveLiked(); render();
-      post({action:'like',id:id,undo:undo}).then(function(d){if(d&&d.ok){it.likes=d.likes;render();}}).catch(function(){});
-    });
-    function setSort(){Array.prototype.forEach.call(document.querySelectorAll('.seg button'),function(x){x.classList.toggle('on',x.dataset.sort===sort);});}
-    document.querySelector('.seg').addEventListener('click',function(e){var b=e.target.closest('button'); if(!b) return; sort=b.dataset.sort; setSort(); render();});
-    fTopic.addEventListener('change',function(){shown=20;render();});
-    load();
-  })();
 
 })();
 </script>
